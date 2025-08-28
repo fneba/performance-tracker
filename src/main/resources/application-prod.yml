@@ -1,0 +1,28 @@
+# src/main/resources/application-prod.yml
+server:
+  port: ${PORT:8080}
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT:5432}/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    out-of-order: false
+
+security:
+  jwt:
+    issuer: "sports-performance-tracker"
+    secret: ${JWT_SECRET}  $ set in your hosting env/secret manager
+    access-token-ttl-min: 60
+    refresh-token-ttl-days: 7
+
+logging:
+  level:
+    root: INFO
