@@ -15,6 +15,8 @@ public class Metric {
 
     private String description;
 
+    public Metric() {}
+
     // Getters
     public Long getId() { return id; }
     public String getKey() { return key; }
