@@ -54,14 +54,14 @@ public class SessionService {
             String key = entry.getKey();
             Double value = entry.getValue();
 
-            // 🧮 Whole-number enforcement for touchdowns & interceptions
+            // Whole-number enforcement for touchdowns & interceptions
             if (key.endsWith("_tds") || key.endsWith("_ints")) {
                 if (value % 1 != 0) {
                     throw new IllegalArgumentException(key + " must be a whole number.");
                 }
             }
 
-            // 📏 Rounding for yardage metrics (half-up)
+            // Rounding for yardage metrics (half-up)
             if (key.endsWith("_yards")) {
                 value = (double) Math.round(value);
             }
