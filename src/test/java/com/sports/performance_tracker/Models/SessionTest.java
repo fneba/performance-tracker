@@ -1,50 +1,27 @@
 package com.sports.performance_tracker.Models;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class SessionTest {
 
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
     @Test
-    void getId() {
-    }
+    void testSessionFields() {
+        Player player = new Player();
+        player.setId(5L);
+        player.setName("AJ Brown");
 
-    @Test
-    void getPlayer() {
-    }
+        Session session = new Session();
+        session.setId(20L);
+        session.setPlayer(player);
+        session.setDate(LocalDate.of(2025, 9, 27));
+        session.setOpponent("Cowboys");
 
-    @Test
-    void getDate() {
-    }
-
-    @Test
-    void getOpponent() {
-    }
-
-    @Test
-    void setId() {
-    }
-
-    @Test
-    void setPlayer() {
-    }
-
-    @Test
-    void setDate() {
-    }
-
-    @Test
-    void setOpponent() {
+        assertThat(session.getId()).isEqualTo(20L);
+        assertThat(session.getPlayer().getName()).isEqualTo("AJ Brown");
+        assertThat(session.getDate()).isEqualTo(LocalDate.of(2025, 9, 27));
+        assertThat(session.getOpponent()).isEqualTo("Cowboys");
     }
 }

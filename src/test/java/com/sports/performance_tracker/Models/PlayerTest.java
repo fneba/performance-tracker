@@ -1,50 +1,22 @@
 package com.sports.performance_tracker.Models;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class PlayerTest {
 
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
     @Test
-    void getId() {
-    }
+    void testPlayerGettersAndSetters() {
+        Player player = new Player();
+        player.setId(1L);
+        player.setName("Jalen Hurts");
+        player.setPosition("QB");
+        player.setTeam("Eagles");
 
-    @Test
-    void getName() {
-    }
-
-    @Test
-    void getPosition() {
-    }
-
-    @Test
-    void getTeam() {
-    }
-
-    @Test
-    void setId() {
-    }
-
-    @Test
-    void setName() {
-    }
-
-    @Test
-    void setPosition() {
-    }
-
-    @Test
-    void setTeam() {
+        assertThat(player.getId()).isEqualTo(1L);
+        assertThat(player.getName()).isEqualTo("Jalen Hurts");
+        assertThat(player.getPosition()).isEqualTo("QB");
+        assertThat(player.getTeam()).isEqualTo("Eagles");
     }
 }

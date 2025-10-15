@@ -1,42 +1,20 @@
 package com.sports.performance_tracker.Models;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class MetricTest {
 
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
     @Test
-    void getId() {
-    }
+    void testMetricFields() {
+        Metric metric = new Metric();
+        metric.setId(10L);
+        metric.setKey("passing_yards");
+        metric.setDescription("Total passing yards in a game");
 
-    @Test
-    void getKey() {
-    }
-
-    @Test
-    void getDescription() {
-    }
-
-    @Test
-    void setId() {
-    }
-
-    @Test
-    void setKey() {
-    }
-
-    @Test
-    void setDescription() {
+        assertThat(metric.getId()).isEqualTo(10L);
+        assertThat(metric.getKey()).isEqualTo("passing_yards");
+        assertThat(metric.getDescription()).contains("Total passing yards");
     }
 }

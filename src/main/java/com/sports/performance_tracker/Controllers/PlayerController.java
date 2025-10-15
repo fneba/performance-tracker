@@ -21,6 +21,7 @@ public class PlayerController {
         return playerRepository.findAll();
     }
 
+    @PostMapping
     public Player createPlayer(@RequestBody Player player){
         return playerRepository.save(player);
     }

@@ -1,50 +1,27 @@
 package com.sports.performance_tracker.Models;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class SessionMetricValueTest {
 
-    @BeforeEach
-    void setUp() {
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
-
     @Test
-    void getId() {
-    }
+    void testSessionMetricValueFields() {
+        Metric metric = new Metric();
+        metric.setKey("rushing_yards");
 
-    @Test
-    void getSession() {
-    }
+        Session session = new Session();
+        session.setOpponent("Giants");
 
-    @Test
-    void getMetric() {
-    }
+        SessionMetricValue smv = new SessionMetricValue();
+        smv.setId(100L);
+        smv.setMetric(metric);
+        smv.setSession(session);
+        smv.setValue(87.5);
 
-    @Test
-    void getValue() {
-    }
-
-    @Test
-    void setId() {
-    }
-
-    @Test
-    void setSession() {
-    }
-
-    @Test
-    void setMetric() {
-    }
-
-    @Test
-    void setValue() {
+        assertThat(smv.getId()).isEqualTo(100L);
+        assertThat(smv.getMetric().getKey()).isEqualTo("rushing_yards");
+        assertThat(smv.getSession().getOpponent()).isEqualTo("Giants");
+        assertThat(smv.getValue()).isEqualTo(87.5);
     }
 }
